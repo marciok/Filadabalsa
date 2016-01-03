@@ -1,0 +1,13 @@
+PODS:
+  - KFSwiftImageLoader (2.0.1)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - KFSwiftImageLoader (~> 2.0.1)
+  - SwiftyJSON (~> 2.3.1)
+
+SPEC CHECKSUMS:
+  KFSwiftImageLoader: a2b8a33a89116c767e7af8d2c109e8c483037b19
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+COCOAPODS: 0.38.2
