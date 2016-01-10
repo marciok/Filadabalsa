@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		1D4E67CD4205F1FD15DFE9E0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669D66462D6A82C92852B76 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		57B159331C2C9F9300C6E4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159321C2C9F9300C6E4BE /* AppDelegate.swift */; };
-		57B159351C2C9F9300C6E4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159341C2C9F9300C6E4BE /* ViewController.swift */; };
+		57B159351C2C9F9300C6E4BE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159341C2C9F9300C6E4BE /* AboutViewController.swift */; };
 		57B159381C2C9F9300C6E4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B159361C2C9F9300C6E4BE /* Main.storyboard */; };
 		57B1593A1C2C9F9300C6E4BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B159391C2C9F9300C6E4BE /* Assets.xcassets */; };
-		57B1593D1C2C9F9300C6E4BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B1593B1C2C9F9300C6E4BE /* LaunchScreen.storyboard */; };
 		57B159481C2C9F9300C6E4BE /* FiladabalsaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159471C2C9F9300C6E4BE /* FiladabalsaTests.swift */; };
 		57B159531C2C9F9300C6E4BE /* FiladabalsaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159521C2C9F9300C6E4BE /* FiladabalsaUITests.swift */; };
 		57B159611C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159601C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift */; };
@@ -38,10 +37,9 @@
 /* Begin PBXFileReference section */
 		57B1592F1C2C9F9300C6E4BE /* Filadabalsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filadabalsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B159321C2C9F9300C6E4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57B159341C2C9F9300C6E4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		57B159341C2C9F9300C6E4BE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		57B159371C2C9F9300C6E4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57B159391C2C9F9300C6E4BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57B1593C1C2C9F9300C6E4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57B1593E1C2C9F9300C6E4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57B159431C2C9F9300C6E4BE /* FiladabalsaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiladabalsaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B159471C2C9F9300C6E4BE /* FiladabalsaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiladabalsaTests.swift; sourceTree = "<group>"; };
@@ -107,10 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				57B159321C2C9F9300C6E4BE /* AppDelegate.swift */,
-				57B159341C2C9F9300C6E4BE /* ViewController.swift */,
+				57B159341C2C9F9300C6E4BE /* AboutViewController.swift */,
 				57B159361C2C9F9300C6E4BE /* Main.storyboard */,
 				57B159391C2C9F9300C6E4BE /* Assets.xcassets */,
-				57B1593B1C2C9F9300C6E4BE /* LaunchScreen.storyboard */,
 				57B1593E1C2C9F9300C6E4BE /* Info.plist */,
 				57B159601C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift */,
 			);
@@ -260,7 +257,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57B1593D1C2C9F9300C6E4BE /* LaunchScreen.storyboard in Resources */,
 				57B1593A1C2C9F9300C6E4BE /* Assets.xcassets in Resources */,
 				57B159381C2C9F9300C6E4BE /* Main.storyboard in Resources */,
 			);
@@ -335,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57B159351C2C9F9300C6E4BE /* ViewController.swift in Sources */,
+				57B159351C2C9F9300C6E4BE /* AboutViewController.swift in Sources */,
 				57B159331C2C9F9300C6E4BE /* AppDelegate.swift in Sources */,
 				57B159611C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift in Sources */,
 			);
@@ -379,14 +375,6 @@
 				57B159371C2C9F9300C6E4BE /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		57B1593B1C2C9F9300C6E4BE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				57B1593C1C2C9F9300C6E4BE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -485,6 +473,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Filadabalsa/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.Filadabalsa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,6 +489,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marcio Klepacz (4SD2D4QDMB)";
 				INFOPLIST_FILE = Filadabalsa/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.Filadabalsa;
 				PRODUCT_NAME = "$(TARGET_NAME)";

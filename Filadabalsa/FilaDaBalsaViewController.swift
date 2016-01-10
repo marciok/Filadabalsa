@@ -16,45 +16,90 @@ class FilaDaBalsaViewController: UIViewController {
     @IBOutlet weak var lastUpdateLabel: UILabel!
     @IBOutlet weak var loadAndUnloadLabel: UILabel!
     @IBOutlet weak var infoTextView: UITextView!
-    var cameraImages: [UIImageView] = []
-    private var lastViewConstraints: NSArray?
-    var ferryInfo: JSON = nil
     @IBOutlet weak var destinationAndLocationControl: UISegmentedControl!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var countDownView: UIView!
+    
+    var cameraImages: [UIImageView] = []
+    private var lastViewConstraints: NSArray?
+    var ferryInfo: JSON = nil
+    var progressCircle: CAShapeLayer!
+    var countDownSecondTimer: NSTimer!
     
     var currentPage: Int {    // The index of the current page (readonly)
         get {
-            let page = Int((self.self.scrollView.contentOffset.x / self.self.scrollView.bounds.size.width))
-            
-            return page
+            return Int((self.self.scrollView.contentOffset.x / self.self.scrollView.bounds.size.width))
         }
     }
-    
 
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        countDownSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdownSeconds", userInfo: nil, repeats: true)
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sobre", style: .Plain, target: self, action: "aboutTapped")
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareAppTapped")
+    
+        progressCircle = CAShapeLayer();
+        
+        let centerPoint = CGPoint (x: countDownView.bounds.width / 2, y: countDownView.bounds.width / 2);
+        let circleRadius : CGFloat = countDownView.bounds.width / 2 * 0.83;
+        
+        let circlePath = UIBezierPath(arcCenter: centerPoint, radius: circleRadius, startAngle: CGFloat(-0.5 * M_PI), endAngle: CGFloat(1.5 * M_PI), clockwise: true    );
+        
+        progressCircle = CAShapeLayer ();
+        progressCircle.path = circlePath.CGPath;
+        progressCircle.strokeColor = UIColor.whiteColor().CGColor;
+        progressCircle.fillColor = UIColor(red:0.4, green:0.85, blue:0.85, alpha:1).CGColor;
+        progressCircle.lineWidth = 2.5;
+        progressCircle.strokeStart = 0;
+        progressCircle.strokeEnd = 1;
+        
+        countDownView.layer.addSublayer(progressCircle);
+
         self.scrollView.delegate = self
         self.scrollView.showsHorizontalScrollIndicator = false
         self.scrollView.showsVerticalScrollIndicator = false
         self.scrollView.pagingEnabled = true
         self.scrollView.backgroundColor = UIColor(red:0.4, green:0.85, blue:0.85, alpha:1)
+        
         view.backgroundColor = UIColor(red:0.18, green:0.79, blue:0.78, alpha:1)
+        
+        navigationController?.navigationBar.tintColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
+        refreshButton.tintColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
+        
         UILabel.appearance().font = UIFont(name: "Bangla Sangam MN", size: 15)
         UILabel.appearance().textColor = UIColor.whiteColor()
+        
+        UITextView.appearance().font = UIFont(name: "Bangla Sangam MN", size: 15)
+        UITextView.appearance().textColor = UIColor.whiteColor()
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.automaticallyAdjustsScrollViewInsets = false
         infoTextView.contentInset = UIEdgeInsetsZero
+        infoTextView.backgroundColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
         refreshButton.addTarget(self, action: "refreshTapped:", forControlEvents: .TouchUpInside)
         refreshButton.backgroundColor = UIColor(red:0.78, green:0.98, blue:0.98, alpha:1)
-        
+        activityIndicator.hidesWhenStopped = true
+
         destinationAndLocationControl.addTarget(self, action: "switchLocation:", forControlEvents: .ValueChanged)
+        
+        activityIndicator.startAnimating()
         refreshInfo()
+        
+        self.view.sendSubviewToBack(scrollView)
     }
     
     func refreshInfo(){
+        activityIndicator.startAnimating()
         let serverURL = NSURL(string: "http://dersa.herokuapp.com/ilhabela")!
         let request = NSMutableURLRequest(URL: serverURL)
         request.HTTPMethod = "GET"
@@ -63,12 +108,14 @@ class FilaDaBalsaViewController: UIViewController {
         let getFerryInfo = session.dataTaskWithRequest(request) { (data, response, error) in
             
             if error != nil {
-                self.showNoConnectionAlert()
-                
-                return
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.showNoConnectionAlert()
+                }
             }
             
-            self.ferryInfo = JSON(data: data!)
+            if let data = data {
+                self.ferryInfo = JSON(data: data)
+            }
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.updateDersaInfo(self.destinationAndLocationControl.selectedSegmentIndex)
@@ -79,7 +126,7 @@ class FilaDaBalsaViewController: UIViewController {
     }
     
     func showNoConnectionAlert() {
-       let alertController = UIAlertController(title: "Não foi possível conectar", message: "Verifique se o dispositivo esta conectado com a internet", preferredStyle: .Alert)
+       let alertController = UIAlertController(title: "Não foi possível conectar", message: "Verifique a conexão com a internet de seu dispositivo", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(OKAction)
         
@@ -90,18 +137,60 @@ class FilaDaBalsaViewController: UIViewController {
         
         let infoBranchKey = selectedIndex == 0 ? "location" : "destination"
         
+        if infoBranchKey == "location" {
+            view.backgroundColor = UIColor(red:0.18, green:0.79, blue:0.78, alpha:1)
+            scrollView.backgroundColor = UIColor(red:0.4, green:0.85, blue:0.85, alpha:1)
+            progressCircle.fillColor = UIColor(red:0.4, green:0.85, blue:0.85, alpha:1).CGColor
+            
+            infoTextView.backgroundColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
+            refreshButton.backgroundColor = UIColor(red:0.78, green:0.98, blue:0.98, alpha:1)
+            refreshButton.tintColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
+            
+        } else {
+            view.backgroundColor = UIColor(red:0.81, green:0.55, blue:0.31, alpha:1)
+            
+            scrollView.backgroundColor = UIColor(red:0.75, green:0.49, blue:0.27, alpha:1)
+            progressCircle.fillColor = UIColor(red:0.75, green:0.49, blue:0.27, alpha:1).CGColor
+            
+            infoTextView.backgroundColor = UIColor(red:0.75, green:0.49, blue:0.27, alpha:1)
+            refreshButton.backgroundColor = UIColor(red:0.83, green:0.65, blue:0.41, alpha:1)
+            refreshButton.tintColor = UIColor(red:0.52, green:0.31, blue:0.16, alpha:1)
+        }
+        
+        self.navigationController?.navigationBar.tintColor = refreshButton.tintColor
+        
         self.loadAndUnloadLabel.text = "\(self.ferryInfo["waiting_minutes"][infoBranchKey].stringValue) min"
         self.numberOfFerriesLabel.text = self.ferryInfo["number_of_ferries"].stringValue
         self.lastUpdateLabel.text = self.ferryInfo["last_update"].stringValue
+        infoTextView.text = self.ferryInfo["information"].stringValue
+        
+        numberOfFerriesLabel.attributedText = NSAttributedString(string: numberOfFerriesLabel.text!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(15)])
+        loadAndUnloadLabel.attributedText = NSAttributedString(string: loadAndUnloadLabel.text!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(15)])
+
+        lastUpdateLabel.attributedText = NSAttributedString(string: lastUpdateLabel.text!, attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(15)])
+
         
         for (index, imageJSON):(String, JSON) in self.ferryInfo["images"][infoBranchKey] {
             let isCameraImagesFull = cameraImages.count == self.ferryInfo["images"][infoBranchKey].count
             let imageView = isCameraImagesFull ? cameraImages[Int(index)!] : UIImageView(frame: self.scrollView.frame)
-            imageView.backgroundColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
+            
+            imageView.backgroundColor = infoTextView.backgroundColor
+            
             imageView.contentMode = .ScaleAspectFit
             let str = imageJSON.stringValue + "?v=\(NSUUID().UUIDString)"
             
-            imageView.loadImageFromURL(NSURL(string: str)!)
+            imageView.loadImageFromURL(NSURL(string: str)!, placeholderImage: nil) {
+                (finished, error) in
+                
+                if finished {
+                    self.activityIndicator.stopAnimating()
+                }
+                
+                if error != nil {
+                    self.activityIndicator.stopAnimating()
+                    self.showNoConnectionAlert()
+                }
+            }
             
             if !isCameraImagesFull {
                 self.addImageToCarrousel(imageView)
@@ -113,11 +202,21 @@ class FilaDaBalsaViewController: UIViewController {
     }
     
     func switchLocation(segmentedControl: UISegmentedControl) {
+        self.activityIndicator.startAnimating()
         updateDersaInfo(segmentedControl.selectedSegmentIndex)
     }
     
     func refreshTapped(button: UIButton) {
-       refreshInfo()
+        refreshInfo()
+    }
+    
+    func countdownSeconds(){
+        progressCircle.strokeStart = progressCircle.strokeStart + 0.016
+        
+        if progressCircle.strokeStart > 1 {
+           progressCircle.strokeStart = 0
+           refreshInfo()
+        }
     }
     
     func addImageToCarrousel(imageView: UIImageView) {
@@ -156,9 +255,17 @@ class FilaDaBalsaViewController: UIViewController {
         scrollView.contentSize.width = scrollView.contentSize.width + CGRectGetWidth(imageView.frame)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    func shareAppTapped() {
+        let string = "Veja a fila da balsa ao vivo pelo app 'Fila da Balsa' "
+        let url = NSURL(string:"http://dersa.herokuapp.com/applink")
         
+        let activityViewController = UIActivityViewController(activityItems: [string, url!], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
+    func aboutTapped(){
+        let aboutViewController = self.storyboard?.instantiateViewControllerWithIdentifier("AboutViewController")
+        navigationController?.pushViewController(aboutViewController!, animated: true)
     }
 }
 
@@ -170,32 +277,4 @@ extension FilaDaBalsaViewController: UIScrollViewDelegate {
         pageControl.currentPage = currentPage
         
     }
-//
-//    internal func scrollViewDidScroll(scrollView: UIScrollView) {
-//        
-//        for index in 0..<cameraImages.count {
-//            
-//            if let imageView = cameraImages[index] as? UIImageView {
-//                
-//                let mx = ((self.scrollView.contentOffset.x + self.view.bounds.size.width) - (view.bounds.size.width * CGFloat(index))) / self.view.bounds.size.width
-//                
-//                // While sliding to the "next" slide (from right to left), the "current" slide changes its offset from 1.0 to 2.0 while the "next" slide changes it from 0.0 to 1.0
-//                // While sliding to the "previous" slide (left to right), the current slide changes its offset from 1.0 to 0.0 while the "previous" slide changes it from 2.0 to 1.0
-//                // The other pages update their offsets whith values like 2.0, 3.0, -2.0... depending on their positions and on the status of the walkthrough
-//                // This value can be used on the previous, current and next page to perform custom animations on page's subviews.
-//                
-//                // print the mx value to get more info.
-//                // println("\(index):\(mx)")
-//                
-//                
-//                // We animate only the previous, current and next page
-////                if(mx < 2 && mx > -2.0){
-////                    imageView.introDidScroll?(self.scrollView.contentOffset.x, offset: mx, scrollCompleted: (mx == 1.0))
-////                }
-//            }
-//            
-//        }
-//        
-//    }
-//    
 }
