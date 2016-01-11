@@ -27,22 +27,22 @@ class FilaDaBalsaViewController: UIViewController {
     var ferryInfo: JSON = nil
     var progressCircle: CAShapeLayer!
     var countDownSecondTimer: NSTimer!
+    var infoBranchKey: String!
     
     var currentPage: Int {    // The index of the current page (readonly)
         get {
             return Int((self.self.scrollView.contentOffset.x / self.self.scrollView.bounds.size.width))
         }
     }
-
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         countDownSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdownSeconds", userInfo: nil, repeats: true)
+        
+        NSNotificationCenter.defaultCenter().addObserverForName("kApplicationDidBecomeActive", object: nil, queue: nil) { notification in
+            self.refreshInfo()
+            
+        }
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sobre", style: .Plain, target: self, action: "aboutTapped")
         
@@ -55,7 +55,7 @@ class FilaDaBalsaViewController: UIViewController {
         
         let circlePath = UIBezierPath(arcCenter: centerPoint, radius: circleRadius, startAngle: CGFloat(-0.5 * M_PI), endAngle: CGFloat(1.5 * M_PI), clockwise: true    );
         
-        progressCircle = CAShapeLayer ();
+        progressCircle = CAShapeLayer();
         progressCircle.path = circlePath.CGPath;
         progressCircle.strokeColor = UIColor.whiteColor().CGColor;
         progressCircle.fillColor = UIColor(red:0.4, green:0.85, blue:0.85, alpha:1).CGColor;
@@ -86,6 +86,7 @@ class FilaDaBalsaViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         infoTextView.contentInset = UIEdgeInsetsZero
         infoTextView.backgroundColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
+        infoTextView.linkTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSUnderlineStyleAttributeName: 1]
         refreshButton.addTarget(self, action: "refreshTapped:", forControlEvents: .TouchUpInside)
         refreshButton.backgroundColor = UIColor(red:0.78, green:0.98, blue:0.98, alpha:1)
         activityIndicator.hidesWhenStopped = true
@@ -100,6 +101,8 @@ class FilaDaBalsaViewController: UIViewController {
     
     func refreshInfo(){
         activityIndicator.startAnimating()
+        refreshButton.enabled = false
+        
         let serverURL = NSURL(string: "http://dersa.herokuapp.com/ilhabela")!
         let request = NSMutableURLRequest(URL: serverURL)
         request.HTTPMethod = "GET"
@@ -109,6 +112,7 @@ class FilaDaBalsaViewController: UIViewController {
             
             if error != nil {
                 dispatch_async(dispatch_get_main_queue()) {
+                    self.refreshButton.enabled = true
                     self.showNoConnectionAlert()
                 }
             }
@@ -118,6 +122,7 @@ class FilaDaBalsaViewController: UIViewController {
             }
             
             dispatch_async(dispatch_get_main_queue()) {
+                self.refreshButton.enabled = true
                 self.updateDersaInfo(self.destinationAndLocationControl.selectedSegmentIndex)
             }
         }
@@ -125,8 +130,8 @@ class FilaDaBalsaViewController: UIViewController {
         getFerryInfo.resume()
     }
     
-    func showNoConnectionAlert() {
-       let alertController = UIAlertController(title: "Não foi possível conectar", message: "Verifique a conexão com a internet de seu dispositivo", preferredStyle: .Alert)
+    func showNoConnectionAlert(title: String = "Não foi possível conectar") {
+       let alertController = UIAlertController(title: title, message: "Verifique a conexão com a internet de seu dispositivo", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(OKAction)
         
@@ -135,7 +140,7 @@ class FilaDaBalsaViewController: UIViewController {
     
     func updateDersaInfo(selectedIndex: Int) {
         
-        let infoBranchKey = selectedIndex == 0 ? "location" : "destination"
+        infoBranchKey = selectedIndex == 0 ? "location" : "destination"
         
         if infoBranchKey == "location" {
             view.backgroundColor = UIColor(red:0.18, green:0.79, blue:0.78, alpha:1)
@@ -188,7 +193,7 @@ class FilaDaBalsaViewController: UIViewController {
                 
                 if error != nil {
                     self.activityIndicator.stopAnimating()
-                    self.showNoConnectionAlert()
+                    self.showNoConnectionAlert("Não possível baixar a imagem")
                 }
             }
             
@@ -256,7 +261,7 @@ class FilaDaBalsaViewController: UIViewController {
     }
     
     func shareAppTapped() {
-        let string = "Veja a fila da balsa ao vivo pelo app 'Fila da Balsa' "
+        let string = "Embarque em \(infoBranchKey == "location" ? "Ilhabela" : "São Sebastião") esta com \(self.ferryInfo["waiting_minutes"][infoBranchKey].stringValue) min de espera - Veja a fila da balsa ao vivo pelo app 'Fila da Balsa' "
         let url = NSURL(string:"http://dersa.herokuapp.com/applink")
         
         let activityViewController = UIActivityViewController(activityItems: [string, url!], applicationActivities: nil)

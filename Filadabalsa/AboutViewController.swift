@@ -15,6 +15,9 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         textView.contentInset = UIEdgeInsetsZero
+//        textView.tintColor = UIColor.whiteColor()
+        textView.linkTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSUnderlineStyleAttributeName: 1]
+            
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
