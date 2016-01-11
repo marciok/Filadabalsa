@@ -262,7 +262,7 @@ class FilaDaBalsaViewController: UIViewController {
     
     func shareAppTapped() {
         let string = "Embarque em \(infoBranchKey == "location" ? "Ilhabela" : "São Sebastião") esta com \(self.ferryInfo["waiting_minutes"][infoBranchKey].stringValue) min de espera - Veja a fila da balsa ao vivo pelo app 'Fila da Balsa' "
-        let url = NSURL(string:"http://dersa.herokuapp.com/applink")
+        let url = NSURL(string:"http://bit.ly/filadabalsa")
         
         let activityViewController = UIActivityViewController(activityItems: [string, url!], applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: nil)
