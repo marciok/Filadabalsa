@@ -34,7 +34,7 @@ profile
 DerivedData
 .idea/
 # Pods - for those of you who use CocoaPods
-**/Pods
+/Pods
 
 ## Documentation cache and generated files:
 /.yardoc/
