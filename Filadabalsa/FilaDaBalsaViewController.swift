@@ -37,16 +37,16 @@ class FilaDaBalsaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countDownSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "countdownSeconds", userInfo: nil, repeats: true)
+        countDownSecondTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(FilaDaBalsaViewController.countdownSeconds), userInfo: nil, repeats: true)
         
         NSNotificationCenter.defaultCenter().addObserverForName("kApplicationDidBecomeActive", object: nil, queue: nil) { notification in
             self.refreshInfo()
             
         }
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sobre", style: .Plain, target: self, action: "aboutTapped")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sobre", style: .Plain, target: self, action: #selector(FilaDaBalsaViewController.aboutTapped))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: "shareAppTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(FilaDaBalsaViewController.shareAppTapped))
     
         progressCircle = CAShapeLayer();
         
@@ -87,11 +87,11 @@ class FilaDaBalsaViewController: UIViewController {
         infoTextView.contentInset = UIEdgeInsetsZero
         infoTextView.backgroundColor = UIColor(red:0, green:0.72, blue:0.71, alpha:1)
         infoTextView.linkTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSUnderlineStyleAttributeName: 1]
-        refreshButton.addTarget(self, action: "refreshTapped:", forControlEvents: .TouchUpInside)
+        refreshButton.addTarget(self, action: #selector(FilaDaBalsaViewController.refreshTapped(_:)), forControlEvents: .TouchUpInside)
         refreshButton.backgroundColor = UIColor(red:0.78, green:0.98, blue:0.98, alpha:1)
         activityIndicator.hidesWhenStopped = true
 
-        destinationAndLocationControl.addTarget(self, action: "switchLocation:", forControlEvents: .ValueChanged)
+        destinationAndLocationControl.addTarget(self, action: #selector(FilaDaBalsaViewController.switchLocation(_:)), forControlEvents: .ValueChanged)
         
         activityIndicator.startAnimating()
         refreshInfo()
@@ -103,14 +103,18 @@ class FilaDaBalsaViewController: UIViewController {
         activityIndicator.startAnimating()
         refreshButton.enabled = false
         
-        let serverURL = NSURL(string: "http://dersa.herokuapp.com/ilhabela")!
+        let serverURL = NSURL(string: "https://dersa.herokuapp.com/ilhabela")!
         let request = NSMutableURLRequest(URL: serverURL)
         request.HTTPMethod = "GET"
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         let getFerryInfo = session.dataTaskWithRequest(request) { (data, response, error) in
             
-            if error != nil {
+            guard let r = response as? NSHTTPURLResponse else {
+                return
+            }
+            
+            if error != nil || r.statusCode != 200 {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.refreshButton.enabled = true
                     self.showNoConnectionAlert()

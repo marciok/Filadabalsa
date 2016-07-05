@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D4E67CD4205F1FD15DFE9E0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669D66462D6A82C92852B76 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		041B44B592E3AF4471962139 /* Pods_Filadabalsa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF74FF9A436B33227953DA24 /* Pods_Filadabalsa.framework */; };
 		57B159331C2C9F9300C6E4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159321C2C9F9300C6E4BE /* AppDelegate.swift */; };
 		57B159351C2C9F9300C6E4BE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159341C2C9F9300C6E4BE /* AboutViewController.swift */; };
 		57B159381C2C9F9300C6E4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B159361C2C9F9300C6E4BE /* Main.storyboard */; };
@@ -15,7 +15,6 @@
 		57B159481C2C9F9300C6E4BE /* FiladabalsaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159471C2C9F9300C6E4BE /* FiladabalsaTests.swift */; };
 		57B159531C2C9F9300C6E4BE /* FiladabalsaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159521C2C9F9300C6E4BE /* FiladabalsaUITests.swift */; };
 		57B159611C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B159601C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift */; };
-		FFB1A392115891CA3986FF40 /* Pods_Filadabalsa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6851856020F7D902DFD4CC78 /* Pods_Filadabalsa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2BDA1799C50D66533DCCA352 /* Pods-Filadabalsa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filadabalsa.release.xcconfig"; path = "Pods/Target Support Files/Pods-Filadabalsa/Pods-Filadabalsa.release.xcconfig"; sourceTree = "<group>"; };
+		0024EFAA00425112A69E86BB /* Pods_FiladabalsaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FiladabalsaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0585EE168D04106FDB186107 /* Pods-Filadabalsa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filadabalsa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Filadabalsa/Pods-Filadabalsa.debug.xcconfig"; sourceTree = "<group>"; };
+		219B5051D8A8C0EB5A7D6A56 /* Pods-Filadabalsa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filadabalsa.release.xcconfig"; path = "Pods/Target Support Files/Pods-Filadabalsa/Pods-Filadabalsa.release.xcconfig"; sourceTree = "<group>"; };
+		572AF5FD1D2B1F04003D3795 /* Filadabalsa-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Filadabalsa-Bridging-Header.h"; sourceTree = "<group>"; };
 		57B1592F1C2C9F9300C6E4BE /* Filadabalsa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Filadabalsa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B159321C2C9F9300C6E4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57B159341C2C9F9300C6E4BE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -50,11 +52,8 @@
 		57B159521C2C9F9300C6E4BE /* FiladabalsaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiladabalsaUITests.swift; sourceTree = "<group>"; };
 		57B159541C2C9F9300C6E4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57B159601C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilaDaBalsaViewController.swift; sourceTree = "<group>"; };
-		65F1FE48CBEB05D689798264 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6851856020F7D902DFD4CC78 /* Pods_Filadabalsa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Filadabalsa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A61006BF595F65AE20A254A3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A669D66462D6A82C92852B76 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD16C8B49A03F9A5FD115F2D /* Pods-Filadabalsa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filadabalsa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Filadabalsa/Pods-Filadabalsa.debug.xcconfig"; sourceTree = "<group>"; };
+		BF74FF9A436B33227953DA24 /* Pods_Filadabalsa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Filadabalsa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F55EB9045BC52F1691BE929A /* Pods_FiladabalsaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FiladabalsaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D4E67CD4205F1FD15DFE9E0 /* Pods.framework in Frameworks */,
-				FFB1A392115891CA3986FF40 /* Pods_Filadabalsa.framework in Frameworks */,
+				041B44B592E3AF4471962139 /* Pods_Filadabalsa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F05A957947042C73CC6FFE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF74FF9A436B33227953DA24 /* Pods_Filadabalsa.framework */,
+				0024EFAA00425112A69E86BB /* Pods_FiladabalsaTests.framework */,
+				F55EB9045BC52F1691BE929A /* Pods_FiladabalsaUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		57B159261C2C9F9300C6E4BE = {
 			isa = PBXGroup;
 			children = (
@@ -91,8 +99,8 @@
 				57B159461C2C9F9300C6E4BE /* FiladabalsaTests */,
 				57B159511C2C9F9300C6E4BE /* FiladabalsaUITests */,
 				57B159301C2C9F9300C6E4BE /* Products */,
-				E94A59A2BF2312B3F94AA1F7 /* Pods */,
-				884B7441A5DCED1951879779 /* Frameworks */,
+				7B530807D34C99D499061999 /* Pods */,
+				4F05A957947042C73CC6FFE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +123,7 @@
 				57B159391C2C9F9300C6E4BE /* Assets.xcassets */,
 				57B1593E1C2C9F9300C6E4BE /* Info.plist */,
 				57B159601C2CACCA00C6E4BE /* FilaDaBalsaViewController.swift */,
+				572AF5FD1D2B1F04003D3795 /* Filadabalsa-Bridging-Header.h */,
 			);
 			path = Filadabalsa;
 			sourceTree = "<group>";
@@ -137,22 +146,11 @@
 			path = FiladabalsaUITests;
 			sourceTree = "<group>";
 		};
-		884B7441A5DCED1951879779 /* Frameworks */ = {
+		7B530807D34C99D499061999 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A669D66462D6A82C92852B76 /* Pods.framework */,
-				6851856020F7D902DFD4CC78 /* Pods_Filadabalsa.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E94A59A2BF2312B3F94AA1F7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A61006BF595F65AE20A254A3 /* Pods.debug.xcconfig */,
-				65F1FE48CBEB05D689798264 /* Pods.release.xcconfig */,
-				CD16C8B49A03F9A5FD115F2D /* Pods-Filadabalsa.debug.xcconfig */,
-				2BDA1799C50D66533DCCA352 /* Pods-Filadabalsa.release.xcconfig */,
+				0585EE168D04106FDB186107 /* Pods-Filadabalsa.debug.xcconfig */,
+				219B5051D8A8C0EB5A7D6A56 /* Pods-Filadabalsa.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -164,12 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57B159571C2C9F9300C6E4BE /* Build configuration list for PBXNativeTarget "Filadabalsa" */;
 			buildPhases = (
-				763235FE7EF3EED3F07952CD /* Check Pods Manifest.lock */,
+				ECA8201A8E2BE1CD03840FCD /* [CP] Check Pods Manifest.lock */,
 				57B1592B1C2C9F9300C6E4BE /* Sources */,
 				57B1592C1C2C9F9300C6E4BE /* Frameworks */,
 				57B1592D1C2C9F9300C6E4BE /* Resources */,
-				6162DC36D3E9BDEB0ED2E4CF /* Embed Pods Frameworks */,
-				3F6C0631D48025C2EEFA7E60 /* Copy Pods Resources */,
+				630927D181A71C1667D0C725 /* [CP] Embed Pods Frameworks */,
+				4FED42EF9944FD69A16F5FCC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,9 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57B1595A1C2C9F9300C6E4BE /* Build configuration list for PBXNativeTarget "FiladabalsaTests" */;
 			buildPhases = (
+				A69A6BA4DC54B2B291EDEA2F /* [CP] Check Pods Manifest.lock */,
 				57B1593F1C2C9F9300C6E4BE /* Sources */,
 				57B159401C2C9F9300C6E4BE /* Frameworks */,
 				57B159411C2C9F9300C6E4BE /* Resources */,
+				D56F2761949778BC5F1A4B29 /* [CP] Embed Pods Frameworks */,
+				7B103610983E7FA00081CD86 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,9 +203,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57B1595D1C2C9F9300C6E4BE /* Build configuration list for PBXNativeTarget "FiladabalsaUITests" */;
 			buildPhases = (
+				AD252068576CA3B32E300C59 /* [CP] Check Pods Manifest.lock */,
 				57B1594A1C2C9F9300C6E4BE /* Sources */,
 				57B1594B1C2C9F9300C6E4BE /* Frameworks */,
 				57B1594C1C2C9F9300C6E4BE /* Resources */,
+				BCAFFA029B3429FFEFE073A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,20 +225,23 @@
 		57B159271C2C9F9300C6E4BE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Marcio Klepacz";
 				TargetAttributes = {
 					57B1592E1C2C9F9300C6E4BE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 4SD2D4QDMB;
+						LastSwiftMigration = 0800;
 					};
 					57B159421C2C9F9300C6E4BE = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 57B1592E1C2C9F9300C6E4BE;
 					};
 					57B1594D1C2C9F9300C6E4BE = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 57B1592E1C2C9F9300C6E4BE;
 					};
 				};
@@ -287,14 +293,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3F6C0631D48025C2EEFA7E60 /* Copy Pods Resources */ = {
+		4FED42EF9944FD69A16F5FCC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,14 +308,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Filadabalsa/Pods-Filadabalsa-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6162DC36D3E9BDEB0ED2E4CF /* Embed Pods Frameworks */ = {
+		630927D181A71C1667D0C725 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,14 +323,89 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Filadabalsa/Pods-Filadabalsa-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		763235FE7EF3EED3F07952CD /* Check Pods Manifest.lock */ = {
+		7B103610983E7FA00081CD86 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FiladabalsaTests/Pods-FiladabalsaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A69A6BA4DC54B2B291EDEA2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AD252068576CA3B32E300C59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BCAFFA029B3429FFEFE073A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FiladabalsaUITests/Pods-FiladabalsaUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D56F2761949778BC5F1A4B29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FiladabalsaTests/Pods-FiladabalsaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECA8201A8E2BE1CD03840FCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,9 +556,10 @@
 		};
 		57B159581C2C9F9300C6E4BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD16C8B49A03F9A5FD115F2D /* Pods-Filadabalsa.debug.xcconfig */;
+			baseConfigurationReference = 0585EE168D04106FDB186107 /* Pods-Filadabalsa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Filadabalsa/Info.plist;
@@ -486,15 +568,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.Filadabalsa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Filadabalsa/Filadabalsa-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		57B159591C2C9F9300C6E4BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BDA1799C50D66533DCCA352 /* Pods-Filadabalsa.release.xcconfig */;
+			baseConfigurationReference = 219B5051D8A8C0EB5A7D6A56 /* Pods-Filadabalsa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Marcio Klepacz (4SD2D4QDMB)";
 				INFOPLIST_FILE = Filadabalsa/Info.plist;
@@ -503,6 +589,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.Filadabalsa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Filadabalsa/Filadabalsa-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -515,6 +603,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.FiladabalsaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Filadabalsa.app/Filadabalsa";
 			};
 			name = Debug;
@@ -527,6 +616,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.FiladabalsaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Filadabalsa.app/Filadabalsa";
 			};
 			name = Release;
@@ -538,6 +628,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.FiladabalsaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Filadabalsa;
 				USES_XCTRUNNER = YES;
 			};
@@ -550,6 +641,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marciok.FiladabalsaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Filadabalsa;
 				USES_XCTRUNNER = YES;
 			};

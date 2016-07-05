@@ -1,13 +1,20 @@
 PODS:
   - KFSwiftImageLoader (2.0.1)
+  - Mixpanel (2.9.9):
+    - Mixpanel/Mixpanel (= 2.9.9)
+  - Mixpanel/Mixpanel (2.9.9)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - KFSwiftImageLoader (~> 2.0)
+  - Mixpanel
   - SwiftyJSON (~> 2.3.1)
 
 SPEC CHECKSUMS:
   KFSwiftImageLoader: a2b8a33a89116c767e7af8d2c109e8c483037b19
+  Mixpanel: 818d1940c2d9402453b349545022a86968097f57
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: f0b987895309d400f53bc5659a2877e39ec19c09
+
+COCOAPODS: 1.0.1

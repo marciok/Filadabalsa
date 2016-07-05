@@ -8,6 +8,7 @@
 
 import UIKit
 import KFSwiftImageLoader
+import Mixpanel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        _ = Mixpanel.sharedInstanceWithToken("6ac83025a23a0c2f74f5f9249301d2fa")
         KFImageCacheManager.sharedInstance.diskCacheMaxAge = 0
         KFImageCacheManager.sharedInstance.requestCachePolicy = .ReloadIgnoringLocalCacheData
         
